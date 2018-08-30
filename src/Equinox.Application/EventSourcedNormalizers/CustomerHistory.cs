@@ -78,9 +78,10 @@ namespace Equinox.Application.EventSourcedNormalizers
                     case "CustomerRemovedEvent":
                         values = JsonConvert.DeserializeObject<dynamic>(e.Data);
                         slot.Action = "Removed";
+                        slot.When = "asd";
                         slot.When = values["Timestamp"];
                         slot.Id = values["Id"];
-                        slot.Who = e.User;
+                        slot.Who = e.User;                        
                         break;
                 }
                 HistoryData.Add(slot);
